@@ -1,0 +1,60 @@
+---
+layout: base.njk
+---
+<article class="recipe-page">
+  <a href="/" class="back-link">← All recipes</a>
+
+  <header class="recipe-header">
+    {% if tags and tags.length %}
+    <div class="recipe-header__tags">
+      {% for tag in tags %}
+      <span class="recipe-header__tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <h1 class="recipe-title">{{ title }}</h1>
+
+    {% if description %}
+    <p class="recipe-description">{{ description }}</p>
+    {% endif %}
+
+    <div class="recipe-meta">
+      {% if servings %}
+      <div class="recipe-meta__item">
+        <span class="recipe-meta__label">Serves</span>
+        <span class="recipe-meta__value">{{ servings }}</span>
+      </div>
+      {% endif %}
+      {% if prepTime %}
+      <div class="recipe-meta__item">
+        <span class="recipe-meta__label">Prep</span>
+        <span class="recipe-meta__value">{{ prepTime }} min</span>
+      </div>
+      {% endif %}
+      {% if cookTime %}
+      <div class="recipe-meta__item">
+        <span class="recipe-meta__label">Cook</span>
+        <span class="recipe-meta__value">{{ cookTime }} min</span>
+      </div>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="recipe-body">
+    {% if ingredients and ingredients.length %}
+    <aside class="recipe-ingredients">
+      <h2>Ingredients</h2>
+      <ul>
+        {% for item in ingredients %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </aside>
+    {% endif %}
+
+    <div class="recipe-content">
+      {{ content | safe }}
+    </div>
+  </div>
+</article>

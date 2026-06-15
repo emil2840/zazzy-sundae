@@ -1,0 +1,40 @@
+---
+layout: base.njk
+title: false
+---
+<section class="home-hero">
+  <h1>{{ site.title }}</h1>
+  <p>{{ site.description }}</p>
+</section>
+
+{% if collections.allTags and collections.allTags.length %}
+<div class="tag-filter" role="navigation" aria-label="Filter by tag">
+  <button class="tag-pill active" data-filter="all">All</button>
+  {% for tag in collections.allTags %}
+  <button class="tag-pill" data-filter="{{ tag }}">{{ tag }}</button>
+  {% endfor %}
+</div>
+{% endif %}
+
+<div class="recipe-grid">
+  {% for recipe in collections.recipes %}
+  {% include "recipe-card.njk" %}
+  {% endfor %}
+</div>
+
+<script>
+  const pills = document.querySelectorAll('.tag-pill');
+  const cards = document.querySelectorAll('.recipe-card');
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const filter = pill.dataset.filter;
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      cards.forEach(card => {
+        const tags = card.dataset.tags ? card.dataset.tags.split(',') : [];
+        card.hidden = filter !== 'all' && !tags.includes(filter);
+      });
+    });
+  });
+</script>
