@@ -1,6 +1,6 @@
 ---
 layout: recipe.njk
-title: 'Nduja pasta med burrata
+title: "'Nduja pasta med burrata"
 date: 2026-06-15
 description: Bedste pastaret til højt kolesteroltal.
 servings: 4
