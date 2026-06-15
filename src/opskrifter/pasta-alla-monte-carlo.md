@@ -5,12 +5,13 @@ date: 2026-06-15
 description: Sinddsygt lækker ragú pasta med oksekød, salsiccia, fløde og pesto - God til årsdag :)
 servings: 4
 prepTime: 15
-cookTime: 35
+cookTime: 40
 tags:
   - pasta
 ingredients:
   - 400g tørret pasta (rigatoni eller pappardelle)
-  - 150g pancetta, skåret i tern
+  - 300g salsiccia, skåret i tern
+  - 300g hakket oksekød
   - 3 skalotteløg, finthakkede
   - 150ml tør hvidvin
   - 200ml piskefløde
