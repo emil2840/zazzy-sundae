@@ -8,7 +8,6 @@ prepTime: 15
 cookTime: 20
 tags:
   - pasta
-  - hverdagsretter
 ingredients:
   - 400g tørret pasta (rigatoni eller pappardelle)
   - 150g pancetta, skåret i tern
