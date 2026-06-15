@@ -48,12 +48,11 @@ body {
 }
 
 .site-logo {
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
   color: var(--text);
   text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 .site-logo:hover {
@@ -322,6 +321,27 @@ main {
 .recipe-meta__value {
   font-size: 1rem;
   font-weight: 400;
+}
+
+/* ─── Recipe Image ────────────────────────────── */
+
+.recipe-image {
+  margin: 0 -1.5rem 3rem;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+.recipe-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .recipe-image {
+    margin: 0 0 3rem;
+  }
 }
 
 /* ─── Recipe Body: two-column on tablet+ ─────── */

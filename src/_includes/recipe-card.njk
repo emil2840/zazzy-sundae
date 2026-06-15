@@ -11,7 +11,7 @@
   <p class="recipe-card__desc">{{ recipe.data.description }}</p>
   {% endif %}
   <div class="recipe-card__meta">
-    {% if recipe.data.servings %}<span>Serves {{ recipe.data.servings }}</span>{% endif %}
+    {% if recipe.data.servings %}<span>{{ recipe.data.servings }} portioner</span>{% endif %}
     {% if recipe.data.cookTime %}<span>{{ recipe.data.cookTime }} min</span>{% endif %}
   </div>
 </a>

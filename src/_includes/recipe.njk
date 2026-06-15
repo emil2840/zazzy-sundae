@@ -2,7 +2,7 @@
 layout: base.njk
 ---
 <article class="recipe-page">
-  <a href="/" class="back-link">← All recipes</a>
+  <a href="/" class="back-link">← Alle opskrifter</a>
 
   <header class="recipe-header">
     {% if tags and tags.length %}
@@ -22,29 +22,35 @@ layout: base.njk
     <div class="recipe-meta">
       {% if servings %}
       <div class="recipe-meta__item">
-        <span class="recipe-meta__label">Serves</span>
+        <span class="recipe-meta__label">Portioner</span>
         <span class="recipe-meta__value">{{ servings }}</span>
       </div>
       {% endif %}
       {% if prepTime %}
       <div class="recipe-meta__item">
-        <span class="recipe-meta__label">Prep</span>
+        <span class="recipe-meta__label">Forberedelse</span>
         <span class="recipe-meta__value">{{ prepTime }} min</span>
       </div>
       {% endif %}
       {% if cookTime %}
       <div class="recipe-meta__item">
-        <span class="recipe-meta__label">Cook</span>
+        <span class="recipe-meta__label">Tilberedning</span>
         <span class="recipe-meta__value">{{ cookTime }} min</span>
       </div>
       {% endif %}
     </div>
   </header>
 
+  {% if image %}
+  <figure class="recipe-image">
+    <img src="/images/{{ image }}" alt="{{ title }}">
+  </figure>
+  {% endif %}
+
   <div class="recipe-body">
     {% if ingredients and ingredients.length %}
     <aside class="recipe-ingredients">
-      <h2>Ingredients</h2>
+      <h2>Ingredienser</h2>
       <ul>
         {% for item in ingredients %}
         <li>{{ item }}</li>

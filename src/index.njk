@@ -9,7 +9,7 @@ title: false
 
 {% if collections.allTags and collections.allTags.length %}
 <div class="tag-filter" role="navigation" aria-label="Filter by tag">
-  <button class="tag-pill active" data-filter="all">All</button>
+  <button class="tag-pill active" data-filter="all">Alle</button>
   {% for tag in collections.allTags %}
   <button class="tag-pill" data-filter="{{ tag }}">{{ tag }}</button>
   {% endfor %}

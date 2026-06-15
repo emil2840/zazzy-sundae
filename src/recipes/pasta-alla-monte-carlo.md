@@ -2,48 +2,48 @@
 layout: recipe.njk
 title: Pasta alla Monte Carlo
 date: 2026-06-15
-description: A creamy, bright pasta built around pancetta, white wine, and lemon — weeknight French in 35 minutes.
+description: En cremet, frisk pasta med pancetta, hvidvin og citron — hverdagsfransk på 35 minutter.
 servings: 4
 prepTime: 15
 cookTime: 20
 tags:
   - pasta
-  - French
-  - cream
-  - weeknight
+  - fransk
+  - fløde
+  - hverdagsret
 ingredients:
-  - 400g dried pasta (rigatoni or pappardelle)
-  - 150g pancetta, cut into lardons
-  - 3 shallots, finely sliced
-  - 150ml dry white wine
-  - 200ml double cream
-  - 60g Parmesan, finely grated, plus more to serve
-  - zest of 1 lemon
-  - freshly cracked black pepper
-  - salt, for pasta water
-  - small knob of butter
+  - 400g tørret pasta (rigatoni eller pappardelle)
+  - 150g pancetta, skåret i tern
+  - 3 skalotteløg, finthakkede
+  - 150ml tør hvidvin
+  - 200ml piskefløde
+  - 60g parmesan, fintrevet, plus ekstra til servering
+  - skal af 1 citron
+  - friskkværnet sort peber
+  - salt til pastavandet
+  - en lille klat smør
 ---
 
-## Method
+## Fremgangsmåde
 
-1. Bring a large pot of well-salted water to a boil. Cook the pasta 2 minutes short of the package time — it finishes in the sauce.
+1. Bring en stor gryde godt saltet vand i kog. Kog pastaen 2 minutter kortere end angivet på pakken — den færdigkoges i saucen.
 
-2. Meanwhile, render the pancetta in a wide pan over medium heat until the fat is translucent and the edges begin to crisp, 6–7 minutes. Remove with a slotted spoon and set aside, leaving the fat in the pan.
+2. Steg i mellemtiden pancettaen i en bred pande ved middel varme, til fedtet er blankt og kanterne begynder at blive sprøde, ca. 6–7 minutter. Tag den op med en hulske og stil til side; lad fedtet blive i panden.
 
-3. Add the shallots to the pancetta fat and cook over low heat until completely soft and sweet, about 8 minutes. Don't rush this step.
+3. Tilsæt skalotteløgene til pancettafedtet og svits ved lav varme, til de er helt bløde og søde, ca. 8 minutter. Hav tålmodighed her.
 
-4. Pour in the white wine and reduce by half, scraping up any fond from the bottom of the pan.
+4. Hæld hvidvinen i og reducer til det halve, skrab bundlaget op med en ske.
 
-5. Add the cream and bring to a gentle simmer. Season lightly — the pancetta and Parmesan will add salt later.
+5. Tilsæt fløden og bring i et forsigtigt kog. Smag til med lidt salt — pancettaen og parmesanen tilsætter salt senere.
 
-6. Drain the pasta, reserving a large cup of pasta water. Add the pasta to the sauce with a splash of pasta water and toss over medium heat for 2 minutes until the sauce clings.
+6. Afdryp pastaen og gem en stor kop pastavand. Tilsæt pastaen til saucen med et skvæt pastavand og vend ved middel varme i 2 minutter, til saucen hæfter sig om pastaen.
 
-7. Off the heat, add the Parmesan, lemon zest, pancetta, and a generous amount of black pepper. Toss vigorously. Add pasta water as needed to reach a glossy, coating consistency.
+7. Tag panden af varmen. Tilsæt parmesan, citronskal, pancetta og rigeligt friskkværnet peber. Rør energisk. Tilsæt pastavand efter behov, til saucen er blank og sammenhængende.
 
-8. Serve immediately with extra Parmesan.
+8. Server straks med ekstra parmesan.
 
-## Notes
+## Noter
 
-- The lemon zest is non-negotiable — it cuts through the cream and makes the dish feel bright rather than heavy.
-- Pappardelle feels more special; rigatoni holds the sauce better inside the tubes on a weeknight.
-- A splash of Noilly Prat in place of white wine adds a subtle herbal note.
+- Citronskallen er ikke til forhandling — den skærer igennem fløden og giver retten en friskhed frem for tyngde.
+- Pappardelle giver en mere festlig fornemmelse; rigatoni holder saucen bedre inde i rørene på en hverdagsaften.
+- Et skvæt Noilly Prat i stedet for hvidvin tilføjer en subtil urtearoma.
