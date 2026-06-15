@@ -6,13 +6,13 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addCollection("recipes", (api) =>
     api
-      .getFilteredByGlob("src/recipes/*.md")
+      .getFilteredByGlob("src/opskrifter/*.md")
       .sort((a, b) => b.date - a.date)
   );
 
   eleventyConfig.addCollection("allTags", (api) => {
     const tagSet = new Set();
-    api.getFilteredByGlob("src/recipes/*.md").forEach((item) => {
+    api.getFilteredByGlob("src/opskrifter/*.md").forEach((item) => {
       (item.data.tags || []).forEach((tag) => tagSet.add(tag));
     });
     return [...tagSet].sort();

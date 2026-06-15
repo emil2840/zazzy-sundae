@@ -4,7 +4,7 @@
 Skriv **ALTID på dansk**. Uanset om brugeren skriver på dansk eller engelsk, skal al output til dette projekt være på dansk. Dette gælder opskrifter, beskrivelser, noter, tags og alt andet indhold på siden.
 
 ## Opskriftsformat
-Nye opskrifter gemmes som Markdown-filer i `src/recipes/<slug>.md`.
+Nye opskrifter gemmes som Markdown-filer i `src/opskrifter/<slug>.md`.
 
 ```markdown
 ---
@@ -38,4 +38,4 @@ image: [filnavn.jpg]   # valgfri — udelad linjen hvis ingen billede
 - Understøttede formater: jpg, jpeg, png, webp
 
 ## GitHub-repo
-Repoen hedder `emil2840/zazzy-sundae`. Opskriftsfiler ligge i `src/recipes/`, billeder i `src/images/`.
+Repoen hedder `emil2840/zazzy-sundae`. Opskriftsfiler ligger i `src/opskrifter/`, billeder i `src/images/`.
