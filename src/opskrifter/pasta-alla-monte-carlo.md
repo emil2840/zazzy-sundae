@@ -33,7 +33,3 @@ image: pasta-alla-monte-carlo.jpg
 5. Ca. 10 minutter før saucen er færdig: bring en stor gryde godt saltet vand i kog. Kog pastaen al dente efter pakkens anvisning. Gem en kop pastavand inden afvanding.
 6. Sluk for varmen. Rør pestoen i saucen, tilsæt derefter den afdryppede pasta. Vend godt rundt og tilsæt evt. lidt pastavand for at løsne saucen.
 7. Anret i skåle og top med det resterende revne Parmigiano Reggiano. Server straks.
-
-## Noter
-
-- Tilsæt pestoen uden for varmen — koger man den, dræber man den friske smag. Saucen kan laves på forhånd og opbevares i køleskab; varm den op og kog pastaen frisk når du er klar til at servere.
