@@ -6,12 +6,9 @@ description: En cremet, frisk pasta med pancetta, hvidvin og citron — hverdags
 servings: 4
 prepTime: 15
 cookTime: 20
-image: pasta-alla-monte-carlo.jpg
 tags:
   - pasta
-  - fransk
-  - fløde
-  - hverdagsret
+  - hverdagsretter
 ingredients:
   - 400g tørret pasta (rigatoni eller pappardelle)
   - 150g pancetta, skåret i tern
@@ -23,6 +20,7 @@ ingredients:
   - friskkværnet sort peber
   - salt til pastavandet
   - en lille klat smør
+image: pasta-alla-monte-carlo.jpg
 ---
 
 ## Fremgangsmåde

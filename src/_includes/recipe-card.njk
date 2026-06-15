@@ -1,4 +1,9 @@
 <a href="{{ recipe.url }}" class="recipe-card" data-tags="{{ recipe.data.tags | join(',') if recipe.data.tags else '' }}">
+  {% if recipe.data.image %}
+  <div class="recipe-card__image">
+    <img src="/images/{{ recipe.data.image }}" alt="{{ recipe.data.title }}" loading="lazy">
+  </div>
+  {% endif %}
   {% if recipe.data.tags and recipe.data.tags.length %}
   <div class="recipe-card__tags">
     {% for tag in recipe.data.tags %}
@@ -11,7 +16,6 @@
   <p class="recipe-card__desc">{{ recipe.data.description }}</p>
   {% endif %}
   <div class="recipe-card__meta">
-    {% if recipe.data.servings %}<span>{{ recipe.data.servings }} portioner</span>{% endif %}
     {% if recipe.data.cookTime %}<span>{{ recipe.data.cookTime }} min</span>{% endif %}
   </div>
 </a>

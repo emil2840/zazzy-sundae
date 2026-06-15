@@ -20,18 +20,6 @@ layout: base.njk
     {% endif %}
 
     <div class="recipe-meta">
-      {% if servings %}
-      <div class="recipe-meta__item">
-        <span class="recipe-meta__label">Portioner</span>
-        <span class="recipe-meta__value">{{ servings }}</span>
-      </div>
-      {% endif %}
-      {% if prepTime %}
-      <div class="recipe-meta__item">
-        <span class="recipe-meta__label">Forberedelse</span>
-        <span class="recipe-meta__value">{{ prepTime }} min</span>
-      </div>
-      {% endif %}
       {% if cookTime %}
       <div class="recipe-meta__item">
         <span class="recipe-meta__label">Tilberedning</span>
@@ -49,11 +37,19 @@ layout: base.njk
 
   <div class="recipe-body">
     {% if ingredients and ingredients.length %}
-    <aside class="recipe-ingredients">
+    <aside class="recipe-ingredients" data-servings="{{ servings or 4 }}">
+      <div class="serving-counter">
+        <span class="serving-counter__label">Portioner</span>
+        <div class="serving-counter__controls">
+          <button class="serving-counter__btn" data-action="decrease" aria-label="Færre portioner">−</button>
+          <span class="serving-counter__value">{{ servings or 4 }}</span>
+          <button class="serving-counter__btn" data-action="increase" aria-label="Flere portioner">+</button>
+        </div>
+      </div>
       <h2>Ingredienser</h2>
       <ul>
         {% for item in ingredients %}
-        <li>{{ item }}</li>
+        <li data-original="{{ item }}">{{ item }}</li>
         {% endfor %}
       </ul>
     </aside>
@@ -64,3 +60,37 @@ layout: base.njk
     </div>
   </div>
 </article>
+
+<script>
+(function () {
+  var aside = document.querySelector('.recipe-ingredients');
+  if (!aside) return;
+  var base = parseInt(aside.dataset.servings, 10) || 4;
+  var count = base;
+  var countEl = aside.querySelector('.serving-counter__value');
+  var items = aside.querySelectorAll('li[data-original]');
+
+  function scale(text, ratio) {
+    return text.replace(/^(\d+(?:[.,]\d+)?)/, function (m) {
+      var n = parseFloat(m.replace(',', '.')) * ratio;
+      if (n % 1 === 0) return String(Math.round(n));
+      return String(Math.round(n * 10) / 10);
+    });
+  }
+
+  function render() {
+    countEl.textContent = count;
+    items.forEach(function (li) {
+      li.textContent = scale(li.dataset.original, count / base);
+    });
+  }
+
+  aside.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-action]');
+    if (!btn) return;
+    if (btn.dataset.action === 'increase') count = Math.min(count + 1, 20);
+    if (btn.dataset.action === 'decrease') count = Math.max(count - 1, 1);
+    render();
+  });
+})();
+</script>
