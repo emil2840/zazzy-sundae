@@ -9,17 +9,18 @@ cookTime: 40
 tags:
   - pasta
 ingredients:
-  - 400g tørret pasta (rigatoni eller pappardelle)
-  - 300g salsiccia, skåret i tern
+  - 500g tørret pasta (trofie eller conchiglie)
+  - 300g salsiccia
   - 300g hakket oksekød
-  - 3 skalotteløg, finthakkede
-  - 150ml tør hvidvin
-  - 200ml piskefløde
-  - 60g parmesan, fintrevet, plus ekstra til servering
-  - skal af 1 citron
-  - friskkværnet sort peber
-  - salt til pastavandet
-  - en lille klat smør
+  - 2 løg, finthakkede
+  - 2 gulerødder, finthakkede
+  - 40g tomatpuré
+  - 150ml hvidvin
+  - 250ml piskefløde
+  - 80g parmesan, fintrevet, plus ekstra til servering
+  - 2 spsk basilikumspesto
+  - olivenolie til stegning
+  - friskkværnet sort peber og salt
 image: pasta-alla-monte-carlo.jpg
 ---
 
