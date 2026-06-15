@@ -26,24 +26,14 @@ image: pasta-alla-monte-carlo.jpg
 
 ## Fremgangsmåde
 
-1. Bring en stor gryde godt saltet vand i kog. Kog pastaen 2 minutter kortere end angivet på pakken — den færdigkoges i saucen.
-
-2. Steg i mellemtiden pancettaen i en bred pande ved middel varme, til fedtet er blankt og kanterne begynder at blive sprøde, ca. 6–7 minutter. Tag den op med en hulske og stil til side; lad fedtet blive i panden.
-
-3. Tilsæt skalotteløgene til pancettafedtet og svits ved lav varme, til de er helt bløde og søde, ca. 8 minutter. Hav tålmodighed her.
-
-4. Hæld hvidvinen i og reducer til det halve, skrab bundlaget op med en ske.
-
-5. Tilsæt fløden og bring i et forsigtigt kog. Smag til med lidt salt — pancettaen og parmesanen tilsætter salt senere.
-
-6. Afdryp pastaen og gem en stor kop pastavand. Tilsæt pastaen til saucen med et skvæt pastavand og vend ved middel varme i 2 minutter, til saucen hæfter sig om pastaen.
-
-7. Tag panden af varmen. Tilsæt parmesan, citronskal, pancetta og rigeligt friskkværnet peber. Rør energisk. Tilsæt pastavand efter behov, til saucen er blank og sammenhængende.
-
-8. Server straks med ekstra parmesan.
+1. Varm 2 spsk olivenolie op i en stor pande ved middel-lav varme. Tilsæt løg og gulerod og svits forsigtigt til de er bløde, ca. 7–8 minutter. De må ikke brune.
+2. Skru op for varmen og tilsæt salsiccia og hakket oksekød. Bræk kødet op med en ske og steg til det er gennembrunet. Lad evt. overskydende væske fordampe.
+3. Hæld hvidvinen i og lad den reducere til det halve, til alkohollugten er næsten væk.
+4. Rør tomatpuréen i, hæld derefter fløden i. Smag til med salt og peber. Riv det meste af parmesanen i og rør rundt — gem lidt til anretning. Skru ned til middel-lav varme og lad saucen simre til den er tyk og fyldig.
+5. Ca. 10 minutter før saucen er færdig: bring en stor gryde godt saltet vand i kog. Kog pastaen al dente efter pakkens anvisning. Gem en kop pastavand inden afvanding.
+6. Sluk for varmen. Rør pestoen i saucen, tilsæt derefter den afdryppede pasta. Vend godt rundt og tilsæt evt. lidt pastavand for at løsne saucen.
+7. Anret i skåle og top med det resterende revne Parmigiano Reggiano. Server straks.
 
 ## Noter
 
-- Citronskallen er ikke til forhandling — den skærer igennem fløden og giver retten en friskhed frem for tyngde.
-- Pappardelle giver en mere festlig fornemmelse; rigatoni holder saucen bedre inde i rørene på en hverdagsaften.
-- Et skvæt Noilly Prat i stedet for hvidvin tilføjer en subtil urtearoma.
+- Tilsæt pestoen uden for varmen — koger man den, dræber man den friske smag. Saucen kan laves på forhånd og opbevares i køleskab; varm den op og kog pastaen frisk når du er klar til at servere.
