@@ -6,6 +6,7 @@ description: En cremet, frisk pasta med pancetta, hvidvin og citron — hverdags
 servings: 4
 prepTime: 15
 cookTime: 20
+image: pasta-alla-monte-carlo.jpg
 tags:
   - pasta
   - fransk
