@@ -264,8 +264,15 @@ layout: base.njk
   btnNotes.addEventListener('click', function () {
     var selected = getChecked();
     if (!selected.length) return;
-    var text = '🛒 ' + recipeTitle + ' (' + modalCount + ' pers.)\n\n' +
-               selected.map(function (i) { return '☐ ' + i; }).join('\n');
+    // RTF med native to-do punkter (ls = tjekliste i Notes)
+    var rtfItems = selected.map(function (i) {
+      return '{\\pard\\ls1 ' + i.replace(/[\\{}]/g, '\\$&') + '\\par}';
+    }).join('\n');
+    var text = '{\\rtf1\\ansi\n' +
+      '{\\listtable{\\list\\listtemplateid1{\\listlevel\\levelnfc23\\levelfollow0}\\listid1}}\n' +
+      '{\\listoverridetable{\\listoverride\\listid1\\ls1}}\n' +
+      '{\\pard\\b ' + recipeTitle + ' (' + modalCount + ' pers.)\\b0\\par}\n' +
+      rtfItems + '}';
     var encoded = encodeURIComponent(text);
     var left = false;
     var timer = setTimeout(function () {
