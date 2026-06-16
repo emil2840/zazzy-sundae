@@ -157,7 +157,6 @@ layout: base.njk
   var sheetList    = sheet.querySelector('.recipe-sheet__list');
   var btnNotes     = sheet.querySelector('.recipe-sheet__btn--notes');
   var btnShare     = sheet.querySelector('.recipe-sheet__btn--share');
-  var btnPdf       = sheet.querySelector('.recipe-sheet__pdf-btn');
   var btnClose     = sheet.querySelector('.recipe-sheet__close');
   var menuBtn      = document.querySelector('.recipe-menu-btn');
 
@@ -280,9 +279,5 @@ layout: base.njk
     else { navigator.clipboard && navigator.clipboard.writeText(text).then(function(){ alert('Kopieret!'); }); }
   });
 
-  btnPdf.addEventListener('click', function () {
-    closeSheet();
-    setTimeout(function () { window.print(); }, 350);
-  });
 })();
 </script>
