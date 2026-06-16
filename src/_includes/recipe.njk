@@ -30,9 +30,22 @@ layout: base.njk
   </header>
 
   {% if image %}
-  <figure class="recipe-image">
+  <figure class="recipe-image recipe-image--with-menu">
     <img src="/images/{{ image }}" alt="{{ title }}">
+    <button class="recipe-menu-btn" aria-label="Opskriftshandlinger" title="Opskriftshandlinger">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/>
+      </svg>
+    </button>
   </figure>
+  {% else %}
+  <div class="recipe-image--no-image">
+    <button class="recipe-menu-btn recipe-menu-btn--no-image" aria-label="Opskriftshandlinger" title="Opskriftshandlinger">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/>
+      </svg>
+    </button>
+  </div>
   {% endif %}
 
   <div class="recipe-body">
@@ -52,12 +65,6 @@ layout: base.njk
         <li data-original="{{ item }}">{{ item }}</li>
         {% endfor %}
       </ul>
-
-      <button class="ingredients-menu-btn" aria-label="Ingredienshandlinger" title="Ingredienshandlinger">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/>
-        </svg>
-      </button>
     </aside>
     {% endif %}
 
@@ -67,49 +74,56 @@ layout: base.njk
   </div>
 </article>
 
-<!-- Ingrediens modal -->
-<div class="ingredients-modal" role="dialog" aria-modal="true" aria-label="Ingrediensliste" hidden>
-  <div class="ingredients-modal__backdrop"></div>
-  <div class="ingredients-modal__panel">
-    <div class="ingredients-modal__header">
-      <h2 class="ingredients-modal__title"></h2>
-      <div class="ingredients-modal__serving">
-        <span class="ingredients-modal__serving-label">Portioner</span>
+<!-- Bottom sheet modal -->
+<div class="recipe-sheet" role="dialog" aria-modal="true" aria-label="Opskriftshandlinger" hidden>
+  <div class="recipe-sheet__backdrop"></div>
+  <div class="recipe-sheet__panel">
+    <div class="recipe-sheet__handle"></div>
+
+    <div class="recipe-sheet__header">
+      <h2 class="recipe-sheet__title"></h2>
+      <div class="recipe-sheet__serving">
+        <span class="recipe-sheet__serving-label">Portioner</span>
         <div class="serving-counter__controls">
           <button class="serving-counter__btn" data-modal-action="decrease" aria-label="Færre portioner">−</button>
-          <span class="ingredients-modal__serving-value"></span>
+          <span class="recipe-sheet__serving-value"></span>
           <button class="serving-counter__btn" data-modal-action="increase" aria-label="Flere portioner">+</button>
         </div>
       </div>
     </div>
 
-    <ul class="ingredients-modal__list"></ul>
+    <ul class="recipe-sheet__list"></ul>
 
-    <div class="ingredients-modal__actions">
-      <button class="ingredients-modal__btn ingredients-modal__btn--notes" aria-label="Tilføj til Notes">
+    <div class="recipe-sheet__actions">
+      <button class="recipe-sheet__btn recipe-sheet__btn--notes">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
         </svg>
-        Tilføj til Notes
+        Gem i Notes
       </button>
-      <button class="ingredients-modal__btn ingredients-modal__btn--share" aria-label="Del ingredienser">
+      <button class="recipe-sheet__btn recipe-sheet__btn--pdf">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+          <line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/>
+        </svg>
+        Gem som PDF
+      </button>
+      <button class="recipe-sheet__btn recipe-sheet__btn--share">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
           <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
           <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
         </svg>
-        Del
+        Del ingredienser
       </button>
     </div>
 
-    <button class="ingredients-modal__close" aria-label="Luk">×</button>
+    <button class="recipe-sheet__close" aria-label="Luk">Luk</button>
   </div>
 </div>
 
 <script>
 (function () {
-  /* ── Portionsskalering på selve opskriftssiden ── */
   var aside = document.querySelector('.recipe-ingredients');
   if (!aside) return;
 
@@ -140,44 +154,85 @@ layout: base.njk
     render();
   });
 
-  /* ── Modal ── */
-  var modal        = document.querySelector('.ingredients-modal');
-  var backdrop     = modal.querySelector('.ingredients-modal__backdrop');
-  var modalTitle   = modal.querySelector('.ingredients-modal__title');
-  var modalServing = modal.querySelector('.ingredients-modal__serving-value');
-  var modalList    = modal.querySelector('.ingredients-modal__list');
-  var btnNotes     = modal.querySelector('.ingredients-modal__btn--notes');
-  var btnShare     = modal.querySelector('.ingredients-modal__btn--share');
-  var btnClose     = modal.querySelector('.ingredients-modal__close');
-  var menuBtn      = aside.querySelector('.ingredients-menu-btn');
+  /* ── Bottom sheet ── */
+  var sheet       = document.querySelector('.recipe-sheet');
+  var panel       = sheet.querySelector('.recipe-sheet__panel');
+  var backdrop    = sheet.querySelector('.recipe-sheet__backdrop');
+  var sheetTitle  = sheet.querySelector('.recipe-sheet__title');
+  var sheetServing = sheet.querySelector('.recipe-sheet__serving-value');
+  var sheetList   = sheet.querySelector('.recipe-sheet__list');
+  var btnNotes    = sheet.querySelector('.recipe-sheet__btn--notes');
+  var btnPdf      = sheet.querySelector('.recipe-sheet__btn--pdf');
+  var btnShare    = sheet.querySelector('.recipe-sheet__btn--share');
+  var btnClose    = sheet.querySelector('.recipe-sheet__close');
+  var menuBtn     = document.querySelector('.recipe-menu-btn');
 
   var modalCount = count;
-  var recipeTitle = document.querySelector('.recipe-title') 
-                    ? document.querySelector('.recipe-title').textContent.trim() 
-                    : '';
+  var recipeTitle = (document.querySelector('.recipe-title') || {}).textContent || '';
+  recipeTitle = recipeTitle.trim();
 
-  function getScaledIngredients() {
-    var ratio = modalCount / base;
-    return Array.from(items).map(function (li) {
-      return scale(li.dataset.original, ratio);
+  /* ── Touch-to-swipe-down ── */
+  var startY = 0, currentY = 0, isDragging = false;
+
+  panel.addEventListener('touchstart', function (e) {
+    var handle = e.target.closest('.recipe-sheet__handle, .recipe-sheet__header');
+    if (!handle) return;
+    startY = e.touches[0].clientY;
+    isDragging = true;
+    panel.style.transition = 'none';
+  }, { passive: true });
+
+  panel.addEventListener('touchmove', function (e) {
+    if (!isDragging) return;
+    currentY = e.touches[0].clientY;
+    var diff = Math.max(0, currentY - startY);
+    panel.style.transform = 'translateY(' + diff + 'px)';
+  }, { passive: true });
+
+  panel.addEventListener('touchend', function () {
+    if (!isDragging) return;
+    isDragging = false;
+    panel.style.transition = '';
+    var diff = currentY - startY;
+    if (diff > 100) {
+      closeSheet();
+    } else {
+      panel.style.transform = '';
+    }
+  });
+
+  function openSheet() {
+    modalCount = count;
+    sheetServing.textContent = modalCount;
+    sheetTitle.textContent = recipeTitle;
+    buildList();
+    sheet.hidden = false;
+    requestAnimationFrame(function () {
+      panel.style.transform = '';
+      sheet.classList.add('is-open');
     });
+    document.body.style.overflow = 'hidden';
   }
 
-  function getCheckedIngredients() {
-    return Array.from(modalList.querySelectorAll('li')).filter(function (li) {
-      return li.querySelector('input').checked;
-    }).map(function (li) {
-      return li.querySelector('span').textContent;
-    });
+  function closeSheet() {
+    sheet.classList.remove('is-open');
+    sheet.classList.add('is-closing');
+    panel.style.transform = 'translateY(100%)';
+    setTimeout(function () {
+      sheet.hidden = true;
+      sheet.classList.remove('is-closing');
+      panel.style.transform = '';
+      document.body.style.overflow = '';
+    }, 320);
   }
 
-  function buildModalList() {
+  function buildList() {
     var ratio = modalCount / base;
-    modalList.innerHTML = '';
+    sheetList.innerHTML = '';
     items.forEach(function (li) {
       var scaled = scale(li.dataset.original, ratio);
       var row = document.createElement('li');
-      row.className = 'ingredients-modal__item';
+      row.className = 'recipe-sheet__item';
       var cb = document.createElement('input');
       cb.type = 'checkbox';
       cb.checked = true;
@@ -190,75 +245,88 @@ layout: base.njk
       label.appendChild(span);
       row.appendChild(cb);
       row.appendChild(label);
-      modalList.appendChild(row);
+      sheetList.appendChild(row);
     });
   }
 
-  function openModal() {
-    modalCount = count; // arv fra opskriftssidens tæller
-    modalServing.textContent = modalCount;
-    modalTitle.textContent = recipeTitle + ' (' + modalCount + ' pers.)';
-    buildModalList();
-    modal.hidden = false;
-    document.body.style.overflow = 'hidden';
+  function getChecked() {
+    return Array.from(sheetList.querySelectorAll('li')).filter(function (li) {
+      return li.querySelector('input').checked;
+    }).map(function (li) {
+      return li.querySelector('span').textContent;
+    });
   }
 
-  function closeModal() {
-    modal.hidden = true;
-    document.body.style.overflow = '';
+  if (menuBtn) {
+    menuBtn.addEventListener('click', openSheet);
   }
+  btnClose.addEventListener('click', closeSheet);
+  backdrop.addEventListener('click', closeSheet);
+  sheet.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSheet(); });
 
-  menuBtn.addEventListener('click', openModal);
-  btnClose.addEventListener('click', closeModal);
-  backdrop.addEventListener('click', closeModal);
-
-  modal.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeModal();
-  });
-
-  // Modal portionsjustering
-  modal.addEventListener('click', function (e) {
+  sheet.addEventListener('click', function (e) {
     var btn = e.target.closest('[data-modal-action]');
     if (!btn) return;
     if (btn.dataset.modalAction === 'increase') modalCount = Math.min(modalCount + 1, 20);
     if (btn.dataset.modalAction === 'decrease') modalCount = Math.max(modalCount - 1, 1);
-    modalServing.textContent = modalCount;
-    modalTitle.textContent = recipeTitle + ' (' + modalCount + ' pers.)';
-    // Opdater hvert li med ny skalering
-    Array.from(modalList.querySelectorAll('li')).forEach(function (row) {
+    sheetServing.textContent = modalCount;
+    Array.from(sheetList.querySelectorAll('li')).forEach(function (row) {
       var span = row.querySelector('span');
       span.textContent = scale(span.dataset.original, modalCount / base);
     });
   });
 
-  /* ── Notes-knap: åbn Genveje med tjekliste-format ── */
+  /* ── Gem i Notes via Genveje ── */
   btnNotes.addEventListener('click', function () {
-    var selected = getCheckedIngredients();
-    if (!selected.length) { alert('Vælg mindst én ingrediens.'); return; }
-
+    var selected = getChecked();
+    if (!selected.length) return;
     var header = '🛒 ' + recipeTitle + ' (' + modalCount + ' pers.)';
-    // ☐ bruges til native tjekliste i Apple Notes via Genveje
     var lines = selected.map(function (i) { return '☐ ' + i; });
     var text = header + '\n\n' + lines.join('\n');
-
     var encoded = encodeURIComponent(text);
+
+    // Forsøg Genveje — fallback til share sheet efter 1.5s
+    var left = false;
+    var fallbackTimer = setTimeout(function () {
+      if (!left) {
+        // Genvej ikke fundet — åbn share sheet i stedet
+        if (navigator.share) {
+          navigator.share({ text: text }).catch(function () {});
+        } else {
+          navigator.clipboard && navigator.clipboard.writeText(text).then(function () {
+            alert('Kopieret til udklipsholder!');
+          });
+        }
+      }
+    }, 1500);
+
+    document.addEventListener('visibilitychange', function onVis() {
+      if (document.hidden) {
+        left = true;
+        clearTimeout(fallbackTimer);
+        document.removeEventListener('visibilitychange', onVis);
+      }
+    });
+
     window.location.href = 'shortcuts://run-shortcut?name=Indkøbsliste&input=' + encoded;
   });
 
-  /* ── Del-knap: Web Share API med kun bullet-liste ── */
+  /* ── Gem som PDF ── */
+  btnPdf.addEventListener('click', function () {
+    closeSheet();
+    setTimeout(function () { window.print(); }, 350);
+  });
+
+  /* ── Del ingredienser ── */
   btnShare.addEventListener('click', function () {
-    var selected = getCheckedIngredients();
-    if (!selected.length) { alert('Vælg mindst én ingrediens.'); return; }
-
-    var lines = selected.map(function (i) { return '• ' + i; });
-    var text = lines.join('\n');
-
+    var selected = getChecked();
+    if (!selected.length) return;
+    var text = selected.map(function (i) { return '• ' + i; }).join('\n');
     if (navigator.share) {
       navigator.share({ text: text }).catch(function () {});
     } else {
-      // Fallback: kopier til udklipsholder
-      navigator.clipboard.writeText(text).then(function () {
-        alert('Kopieret til udklipsholder!');
+      navigator.clipboard && navigator.clipboard.writeText(text).then(function () {
+        alert('Kopieret!');
       });
     }
   });
