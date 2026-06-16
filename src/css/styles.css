@@ -648,7 +648,7 @@ main {
     border-radius: 16px;
     height: auto;
     max-height: 78vh;
-    max-width: var(--content-width);
+    max-width: calc(var(--content-width) * 0.75);
     width: 100%;
     transform: translateY(12px);
     opacity: 0;
