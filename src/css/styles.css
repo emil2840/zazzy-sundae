@@ -648,6 +648,8 @@ main {
     border-radius: 16px;
     height: auto;
     max-height: 78vh;
+    max-width: var(--content-width);
+    width: 100%;
     transform: translateY(12px);
     opacity: 0;
     transition: transform 0.28s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.28s ease;
@@ -655,6 +657,9 @@ main {
   .recipe-sheet.is-open .recipe-sheet__panel {
     transform: translateY(0);
     opacity: 1;
+  }
+  .recipe-sheet__handle {
+    display: none;
   }
 }
 
