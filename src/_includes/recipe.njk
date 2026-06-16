@@ -26,14 +26,6 @@ layout: base.njk
         <span class="recipe-meta__value">{{ cookTime }} min</span>
       </div>
       {% endif %}
-
-      <button class="recipe-pdf-btn" aria-label="Gem som PDF" title="Gem som PDF" onclick="window.print()">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
-          <line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/>
-        </svg>
-        PDF
-      </button>
     </div>
   </header>
 
@@ -41,16 +33,16 @@ layout: base.njk
   <figure class="recipe-image">
     <img src="/images/{{ image }}" alt="{{ title }}">
     <button class="recipe-menu-btn" aria-label="Opskriftshandlinger">
-      <svg width="4" height="18" viewBox="0 0 4 18" fill="currentColor" aria-hidden="true">
-        <circle cx="2" cy="2" r="2"/><circle cx="2" cy="9" r="2"/><circle cx="2" cy="16" r="2"/>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <circle cx="12" cy="5" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="12" cy="19" r="2.2"/>
       </svg>
     </button>
   </figure>
   {% else %}
   <div class="recipe-meta-menu">
     <button class="recipe-menu-btn recipe-menu-btn--inline" aria-label="Opskriftshandlinger">
-      <svg width="4" height="18" viewBox="0 0 4 18" fill="currentColor" aria-hidden="true">
-        <circle cx="2" cy="2" r="2"/><circle cx="2" cy="9" r="2"/><circle cx="2" cy="16" r="2"/>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <circle cx="12" cy="5" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="12" cy="19" r="2.2"/>
       </svg>
     </button>
   </div>
@@ -119,6 +111,16 @@ layout: base.njk
       </button>
     </div>
 
+    <div class="recipe-sheet__divider"></div>
+
+    <button class="recipe-sheet__btn recipe-sheet__btn--pdf">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+        <line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/>
+      </svg>
+      Gem som PDF
+    </button>
+
     <button class="recipe-sheet__close" aria-label="Luk">Luk</button>
   </div>
 </div>
@@ -155,7 +157,6 @@ layout: base.njk
     render();
   });
 
-  /* ── Bottom sheet ── */
   var sheet        = document.querySelector('.recipe-sheet');
   var panel        = sheet.querySelector('.recipe-sheet__panel');
   var backdrop     = sheet.querySelector('.recipe-sheet__backdrop');
@@ -164,6 +165,7 @@ layout: base.njk
   var sheetList    = sheet.querySelector('.recipe-sheet__list');
   var btnNotes     = sheet.querySelector('.recipe-sheet__btn--notes');
   var btnShare     = sheet.querySelector('.recipe-sheet__btn--share');
+  var btnPdf       = sheet.querySelector('.recipe-sheet__btn--pdf');
   var btnClose     = sheet.querySelector('.recipe-sheet__close');
   var menuBtn      = document.querySelector('.recipe-menu-btn');
 
@@ -171,7 +173,6 @@ layout: base.njk
   var recipeTitle = (document.querySelector('.recipe-title') || {}).textContent || '';
   recipeTitle = recipeTitle.trim();
 
-  /* ── Swipe to close ── */
   var startY = 0, currentY = 0, isDragging = false;
   panel.addEventListener('touchstart', function (e) {
     var handle = e.target.closest('.recipe-sheet__handle, .recipe-sheet__header');
@@ -200,9 +201,7 @@ layout: base.njk
     sheetTitle.textContent = recipeTitle;
     buildList();
     sheet.hidden = false;
-    requestAnimationFrame(function () {
-      sheet.classList.add('is-open');
-    });
+    requestAnimationFrame(function () { sheet.classList.add('is-open'); });
     document.body.style.overflow = 'hidden';
   }
 
@@ -259,7 +258,6 @@ layout: base.njk
     });
   });
 
-  /* ── Gem i Notes ── */
   btnNotes.addEventListener('click', function () {
     var selected = getChecked();
     if (!selected.length) return;
@@ -276,13 +274,17 @@ layout: base.njk
     window.location.href = 'shortcuts://run-shortcut?name=Indkøbsliste&input=' + encoded;
   });
 
-  /* ── Del ingredienser ── */
   btnShare.addEventListener('click', function () {
     var selected = getChecked();
     if (!selected.length) return;
     var text = selected.map(function (i) { return '• ' + i; }).join('\n');
     if (navigator.share) { navigator.share({ text: text }).catch(function(){}); }
     else { navigator.clipboard && navigator.clipboard.writeText(text).then(function(){ alert('Kopieret!'); }); }
+  });
+
+  btnPdf.addEventListener('click', function () {
+    closeSheet();
+    setTimeout(function () { window.print(); }, 350);
   });
 })();
 </script>
