@@ -167,23 +167,29 @@ layout: base.njk
 
   /* ── Swipe to close — kun på handle-bar ── */
   var startY = 0, currentY = 0;
-  var handleEl = panel.querySelector('.recipe-sheet__handle');
+  // Swipe-zone: handle + header (men ikke knapper/inputs)
+  var dragZone = panel.querySelector('.recipe-sheet__header');
 
-  handleEl.addEventListener('touchstart', function (e) {
+  dragZone.addEventListener('touchstart', function (e) {
+    if (e.target.closest('button, input, label')) return;
     startY = e.touches[0].clientY;
     currentY = startY;
     panel.style.transition = 'none';
   }, { passive: true });
 
-  handleEl.addEventListener('touchmove', function (e) {
+  dragZone.addEventListener('touchmove', function (e) {
+    if (startY === 0) return;
     currentY = e.touches[0].clientY;
     var diff = Math.max(0, currentY - startY);
     panel.style.transform = 'translateY(' + diff + 'px)';
   }, { passive: true });
 
-  handleEl.addEventListener('touchend', function () {
+  dragZone.addEventListener('touchend', function () {
+    if (startY === 0) return;
     panel.style.transition = '';
-    if ((currentY - startY) > 80) { closeSheet(); }
+    var moved = currentY - startY;
+    startY = 0;
+    if (moved > 80) { closeSheet(); }
     else { panel.style.transform = ''; }
   });
 
