@@ -250,16 +250,21 @@ layout: base.njk
   backdrop.addEventListener('click', closeSheet);
   sheet.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSheet(); });
 
-  sheet.addEventListener('click', function (e) {
+  // Portionsknapper lytter på panel (ikke sheet) så stopPropagation ikke blokerer dem
+  panel.addEventListener('click', function (e) {
     var btn = e.target.closest('[data-modal-action]');
-    if (!btn) return;
-    if (btn.dataset.modalAction === 'increase') modalCount = Math.min(modalCount + 1, 20);
-    if (btn.dataset.modalAction === 'decrease') modalCount = Math.max(modalCount - 1, 1);
-    sheetServing.textContent = modalCount;
-    Array.from(sheetList.querySelectorAll('li')).forEach(function (row) {
-      var span = row.querySelector('span');
-      span.textContent = scale(span.dataset.original, modalCount / base);
-    });
+    if (btn) {
+      if (btn.dataset.modalAction === 'increase') modalCount = Math.min(modalCount + 1, 20);
+      if (btn.dataset.modalAction === 'decrease') modalCount = Math.max(modalCount - 1, 1);
+      sheetServing.textContent = modalCount;
+      Array.from(sheetList.querySelectorAll('li')).forEach(function (row) {
+        var span = row.querySelector('span');
+        span.textContent = scale(span.dataset.original, modalCount / base);
+      });
+      return;
+    }
+    // Stop alle andre klik fra at boble til backdrop
+    e.stopPropagation();
   });
 
   btnNotes.addEventListener('click', function () {
