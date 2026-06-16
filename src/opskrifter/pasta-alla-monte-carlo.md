@@ -2,7 +2,7 @@
 layout: recipe.njk
 title: Pasta alla Monte Carlo
 date: 2026-06-15
-description: Sinddsygt lækker ragú pasta med oksekød, salsiccia, fløde og pesto - God til årsdag :)
+description: Sindssyg lækker ragú pasta med oksekød, salsiccia, fløde og pesto - God til årsdag :)
 servings: 4
 prepTime: 15
 cookTime: 40
