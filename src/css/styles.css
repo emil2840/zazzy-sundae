@@ -433,6 +433,7 @@ main {
   transition: border-color 0.15s, color 0.15s;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  touch-action: manipulation;
 }
 
 .serving-counter__btn:hover {
