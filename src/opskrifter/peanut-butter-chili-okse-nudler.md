@@ -6,7 +6,7 @@ description: Cremet og spicy nudelret med hakket oksekød, peanutbutter og crisp
 servings: 4
 cookTime: 25
 tags:
-  - hverdagsretter
+  - Hverdag
 ingredients:
   - 400g hakket oksekød
   - 6 fed hvidløg (3 fed til kødet, 3 fed til saucen)
