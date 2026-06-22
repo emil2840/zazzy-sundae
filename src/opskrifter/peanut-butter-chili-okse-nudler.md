@@ -36,3 +36,7 @@ image: peanut-butter-chili-okse-nudler.jpg
 7. Tilføj vand løbende til konsistensen er rigtig.
 8. Vend nudlerne i saucen til sidst.
 9. Anret og top med forårsløg og sesamfrø.
+
+## Noter
+
+- Du kan tilføje edamamebønner samtidig med, at oksekødet kommes i saucen.
