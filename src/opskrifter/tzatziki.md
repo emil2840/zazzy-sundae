@@ -5,6 +5,7 @@ date: 2026-07-28
 description: Klassisk cremet tzatziki med agurk, hvidløg og friske krydderurter – perfekt tilbehør til grillmad, pitabrød eller kød.
 servings: 6
 prepTime: 15
+cookTime: 15
 tags:
   - Tilbehør
 ingredients:
