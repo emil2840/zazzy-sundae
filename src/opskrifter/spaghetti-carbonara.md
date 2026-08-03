@@ -6,7 +6,7 @@ description: Klassisk romersk pastaret med sprød pancetta, cremet æggeblomme o
 servings: 4
 cookTime: 25
 tags:
-  - Pasta
+  - pasta
 ingredients:
   - 500g spaghetti
   - 200g pancetta, skåret i skiver
