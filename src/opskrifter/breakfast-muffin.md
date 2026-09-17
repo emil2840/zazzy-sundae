@@ -28,3 +28,8 @@ image: breakfast-muffin.jpg
 4. Smør ranch dressing på den øverste muffin-halvdel (uden ost).
 5. På den nederste muffin-halvdel (ost-siden): læg syltede jalapeños, derefter skinke, og til sidst æg.
 6. Top med skiveskåret avocado, krydret med salt, peber og chiliflager. Læg toppen på og server straks.
+
+## Noter
+
+- Prøv gerne med et lille sjat ketchup ved siden af ranch-dressingen for et sødere touch.
+- Ranch kan udskiftes med mayo – gerne i kombination med lidt ketchup.
