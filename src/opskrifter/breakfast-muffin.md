@@ -6,7 +6,7 @@ description: Sprød engelsk muffin med smeltet cheddar, sprød skinke, spejlæg,
 servings: 2
 cookTime: 20
 tags:
-  - hverdagsretter
+  - Hverdag
 ingredients:
   - 2 engelske muffins
   - 2 skiver cheddar
